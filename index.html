@@ -17,3 +17,30 @@
     🚀 상환포착기 실행 중...
   </body>
 </html>
+<!-- Firebase 연동 스크립트 추가 -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js"></script>
+
+<script>
+  // 🔧 네 Firebase 설정값 넣기
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+    databaseURL: "https://cytech375406-default-rtdb.firebaseio.com",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_PROJECT_ID.appspot.com",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId: "YOUR_APP_ID"
+  };
+
+  // Firebase 초기화
+  const app = firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
+
+  // 샘플 데이터 쓰기 (테스트용)
+  db.ref('급등감지').set({
+    time: new Date().toISOString(),
+    종목: "비보존제약",
+    점수: 92
+  });
+</script>
